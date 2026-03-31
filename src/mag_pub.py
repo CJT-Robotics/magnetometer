@@ -46,11 +46,9 @@ def yahboom_precise_node():
     port = rospy.get_param('~port', '/dev/mag_yahboom')
     baud = rospy.get_param('~baud', 115200)
     frame_id = rospy.get_param('~frame_id', 'mag_link')
-    loop_hz = rospy.get_param('~publish_rate', 10)
     calib_duration = rospy.get_param('~calibration_duration', 3)
 
     pub = rospy.Publisher('imu/mag', MagneticField, queue_size=1)
-    rate = rospy.Rate(loop_hz)
     
     try:
         ser = serial.Serial(port, baud, timeout=1)
@@ -87,7 +85,6 @@ def yahboom_precise_node():
                     msg.magnetic_field.z = (mz - off_z) * mag_scale
                     
                     pub.publish(msg)
-                    rate.sleep()
 
     ser.close()
 

@@ -3,7 +3,6 @@
 
     <node name="mag_node" pkg="magnetometer" type="mag_pub.py" output="screen">
         <param name="port" value="/dev/mag_yahboom" />
-        <param name="publish_rate" value="10" />
         <param name="frame_id" value="mag_link" />
     </node>
 
