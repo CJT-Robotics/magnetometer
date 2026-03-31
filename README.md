@@ -1,4 +1,4 @@
-# Yahboom Magnetometer ROS Node
+# Magnetometer ROS Node
 
 This package provides a ROS1 node for reading raw magnetometer data from a Yahboom IMU via serial interface, performing a simple calibration, and publishing the data as a `sensor_msgs/MagneticField` topic.
 
